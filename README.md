@@ -32,7 +32,7 @@ pip install -r requirements.txt
 ## Usage
 To run the scraping script, execute the following command in the terminal:
 ```
-python football_web_scraper.py
+python main.py
 ```
 
 ## Configuration
