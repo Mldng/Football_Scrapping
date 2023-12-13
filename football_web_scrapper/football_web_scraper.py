@@ -32,8 +32,9 @@ def get_data_dropdown(url,index) -> pd:
         specific elements identifiable by given XPATHs, IDs, and tags. Changes in the
         web page's structure may require updates to the locators used in this function.
     """
-
+    print('*********************************')
     print(f'Getting data for country {index}')
+    print('*********************************')
 
     # Initialize the Chrome WebDriver
     driver = webdriver.Chrome()
@@ -94,8 +95,10 @@ def get_data_dropdown(url,index) -> pd:
     return df
 
 def save_csv(df, index):
+    print('*********************************')
     print(f'Saving data for country {index}')
-    save_path = os.path.join(os.getcwd(),'csv')
+    print('*********************************')
+    save_path = CSV_DIRECTORY
     if not os.path.exists(save_path):
         os.makedirs(save_path)
     save_name = f'{save_path}/football_data_{index}.csv'
@@ -104,8 +107,8 @@ def save_csv(df, index):
 
 def main():
     # Define the URL
-    url = "https://www.adamchoi.co.uk/overs/detailed"
-    country_index = 0  # Start from index 0
+    url = URL
+    country_index = START_INDEX  # Start from START_INDEX
 
     while True:
         # Get data
@@ -124,7 +127,8 @@ def main():
         # Increment the index for the next iteration
         country_index += 1
 
+    print('*********************************')
     print("Data scraping and saving completed successfully")
-
+    print('*********************************')
 if __name__ == "__main__":
     main()
