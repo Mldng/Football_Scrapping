@@ -5,7 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 import pandas as pd
 import time
 import os
-from utils.params import *
+from football_web_scraper.utils.params import *
 
 def get_data_dropdown(url,index) -> pd:
     """
@@ -98,9 +98,10 @@ def save_csv(df, index):
     print('*********************************')
     print(f'Saving data for country {index}')
     print('*********************************')
-    save_path = CSV_DIRECTORY
-    if not os.path.exists(save_path):
-        os.makedirs(save_path)
-    save_name = f'{save_path}/football_data_{index}.csv'
-    df.to_csv(save_name, index=False)
-    print(f'finished saving data for country {index}')
+    csv_path = CSV_DIRECTORY
+    if not os.path.exists(csv_path):
+        os.makedirs(csv_path)
+    save_path = f'{csv_path}/football_data_{index}.csv'
+    df.to_csv(save_path, index=False)
+    print(f'Finished saving data for country {index}')
+    print('==================================')
