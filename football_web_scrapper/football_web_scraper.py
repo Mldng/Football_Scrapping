@@ -5,6 +5,7 @@ from selenium.common.exceptions import NoSuchElementException
 import pandas as pd
 import time
 import os
+from utils.params import *
 
 def get_data_ENG(url) -> pd:
     """
